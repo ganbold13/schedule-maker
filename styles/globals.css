@@ -1,16 +1,85 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
-  box-sizing: border-box;
+    font-family: monospace;
+}
+body{
+    @apply bg-gray-700
+}
+.MainMenu {
+    width: 10.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.MainMenu button {
+    width: 4vw;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    
+}
+.dayChoose label {
+    cursor: pointer;
+}
+.dayChoose label input[type="radio"]{
+    display: none;
+}
+.dayChoose label span {
+    position:relative;
+    display: inline-block;
+    padding: 4px 8px;
+    transition: 0.5s;
+    border-radius: 10%;
+    @apply text-gray-400 font-medium overflow-hidden
+
+}
+
+.dayChoose label input[type="radio"]:hover~ span {
+    @apply shadow
+}
+
+.dayChoose label input[type="radio"]:checked ~ span{
+    @apply text-gray-700 bg-gray-400
+}
+
+.event{
+    max-width: 11.5vw;
+    height: 5.5vh;
+    width: 10vw;
+    min-width: 4vw;
+    min-height: 20px;
+
+}
+.content{
+    width: 100%;
+    height: 100%;
+}
+.box {
+    min-height: 22px;
+    font-size: 1vw;
+}
+.fade-in{
+    animation: fadeIn 0.5s;
+}
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+.fade-out{
+    animation: fadeOut 0.5s;
+}
+@keyframes fadeOut {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
 }
