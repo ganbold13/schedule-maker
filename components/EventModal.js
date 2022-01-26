@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import GlobalContext from "../context/GlobalContext";
 
-const labelClasses = ["indigo-500", "gray-500", "green-500", "blue-500", "red-500", "purple-500"];
+const labelClasses = ["bg-indigo-500 hover:shadow-indigo-500", "bg-gray-500 hover:shadow-gray-500", "bg-green-500 hover:shadow-green-500", "bg-blue-500 hover:shadow-blue-500", "bg-red-500 hover:shadow-red-500", "bg-purple-500 hover:shadow-purple-500"];
 
 function EventModal() {
   const {
@@ -290,7 +290,7 @@ function EventModal() {
                 <span
                   key={i}
                   onClick={() => setSelectedLabel(lblClass)}
-                  className={`bg-${lblClass} w-6 h-6 text-white rounded-full flex items-center justify-center cursor-pointer`}
+                  className={`${lblClass} w-6 h-6 text-white rounded-full flex items-center justify-center cursor-pointer`}
                 >
                   {selectedLabel === lblClass && (
                     <svg

@@ -18,7 +18,7 @@ function Grid({ day, timeStart, timeEnd }) {
       {events.map((evt, idx) => (
         <div
           key={idx}
-          className={`bg-${evt.label} shadow-sm shadow-${evt.label}  absolute flex flex-col rounded-md z-10 cursor-pointer hover:scale-x-105 hover:shadow-lg hover:shadow-${evt.label} transition`}
+          className={`${evt.label} shadow-sm  absolute flex flex-col rounded-md z-10 cursor-pointer hover:scale-x-105 hover:shadow-lg transition`}
           onClick={() => {
             setSelectedEvent(evt), setShowEventModal(true);
           }}
