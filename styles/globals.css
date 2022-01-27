@@ -6,7 +6,7 @@
   font-family: monospace;
 }
 body {
-  @apply bg-gray-700;
+  @apply bg-gray-100 dark:bg-gray-700; 
 }
 .MainMenu {
   width: 10.5vw;
@@ -47,7 +47,7 @@ body {
 }
 
 .dayChoose label input[type="radio"]:checked ~ span {
-  @apply text-gray-200 bg-gray-900;
+  @apply text-white bg-blue-400 dark:text-gray-200 dark:bg-gray-900;
 }
 .event45 {
   max-width: 11.5vw;

@@ -12,6 +12,7 @@ function EventModal() {
     timesEnd,
     selectedEvent,
     setSelectedEvent,
+    isSevenDays
   } = useContext(GlobalContext);
   const [title, setTitle] = useState(selectedEvent ? selectedEvent.title : "");
   const [prof, setProf] = useState(selectedEvent ? selectedEvent.prof : "");
@@ -46,8 +47,8 @@ function EventModal() {
 
   return (
     <div className={`h-screen w-full fixed left-0 top-0 flex justify-center items-center z-20 fade-in`}>
-      <form className="bg-gray-800 rounded-lg shadow-2xl modal">
-        <header className="bg-gray-900 px-4 py-2 flex justify-between items-center">
+      <form className="bg-white dark:bg-gray-800 rounded-lg shadow-2xl modal">
+        <header className="bg-gray-200 dark:bg-gray-900 px-4 py-2 flex justify-between items-center">
           <span className="text-gray-400"></span>
           <div className="flex">
             {selectedEvent && (
@@ -109,7 +110,7 @@ function EventModal() {
               value={title}
               required
               onChange={(e) => setTitle(e.target.value)}
-              className="bg-gray-800 pt-3 border-0 text-gray-400 text-xl font-semibold pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
+              className="bg-white dark:bg-gray-800 pt-3 border-0 text-gray-600 dark:text-gray-400 text-xl font-semibold pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
             />
             <div></div>
             {/* Days */}
@@ -164,7 +165,7 @@ function EventModal() {
                 />
                 <span>F</span>
               </label>
-              <label>
+              {isSevenDays? <><label>
                 <input
                   type="radio"
                   name="day"
@@ -183,7 +184,8 @@ function EventModal() {
                   onChange={(e) => setDay("SUN")}
                 />
                 <span>Su</span>
-              </label>
+              </label> </> : ""}
+              
             </div>
             {/* Starts */}
             <span className="text-gray-400">
@@ -205,7 +207,7 @@ function EventModal() {
               onChange={(e) => setStart(e.target.value)}
               name="startTime"
               id="startTime"
-              className="bg-gray-800 pt-3 border-0 text-gray-400 pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
+              className="bg-white dark:bg-gray-800 pt-3 border-0 text-gray-600 dark:text-gray-400 pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
             >
               <option value={"Starts"} disabled>
                 Starts
@@ -237,7 +239,7 @@ function EventModal() {
               onChange={(e) => setDuration(e.target.value)}
               name="durationTime"
               id="durationTime"
-              className="bg-gray-800 pt-3 border-0 text-gray-400 pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
+              className="bg-white dark:bg-gray-800 pt-3 border-0 text-gray-600 dark:text-gray-400 pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
             >
               <option value={"duration"} disabled>
                 Duration
@@ -283,7 +285,7 @@ function EventModal() {
               value={prof}
               required
               onChange={(e) => setProf(e.target.value)}
-              className="bg-gray-800 pt-3 border-0 text-gray-400 pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
+              className="bg-white dark:bg-gray-800 pt-3 border-0 text-gray-600 dark:text-gray-400 pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
             />
             {/* Bookmark */}
             <span className="text-gray-400">
