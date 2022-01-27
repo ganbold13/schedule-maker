@@ -20,6 +20,10 @@ body {
   justify-content: center;
   align-items: center;
 }
+.modal {
+    width: 25%;
+    min-width: 250px;
+}
 .dayChoose label {
   cursor: pointer;
 }

@@ -45,8 +45,8 @@ function EventModal() {
   }
 
   return (
-    <div className={`h-screen w-full fixed left-0 top-0 flex justify-center items-center z-20 fade-in `}>
-      <form className="bg-gray-800 rounded-lg shadow-2xl w-1/4">
+    <div className={`h-screen w-full fixed left-0 top-0 flex justify-center items-center z-20 fade-in`}>
+      <form className="bg-gray-800 rounded-lg shadow-2xl modal">
         <header className="bg-gray-900 px-4 py-2 flex justify-between items-center">
           <span className="text-gray-400"></span>
           <div className="flex">
@@ -201,13 +201,13 @@ function EventModal() {
               </svg>
             </span>
             <select
-              defaultValue={"Starts"}
+              defaultValue={selectedEvent? selectedEvent.start :"Starts"}
               onChange={(e) => setStart(e.target.value)}
               name="startTime"
               id="startTime"
               className="bg-gray-800 pt-3 border-0 text-gray-400 pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
             >
-              <option value={selectedEvent? selectedEvent.start :"Starts"} disabled>
+              <option value={"Starts"} disabled>
                 Starts
               </option>
               {timesStart.map((time, i) => (
@@ -326,7 +326,7 @@ function EventModal() {
             onClick={handleSubmit}
             className="bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded text-white"
           >
-            Save
+            {selectedEvent? "Update" : "Save" }
           </button>
         </footer>
       </form>
