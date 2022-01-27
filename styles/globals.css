@@ -10,19 +10,22 @@ body {
 }
 .MainMenu {
   width: 10.5vw;
+  min-width: 100px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 .MainMenu button {
   width: 4vw;
+  min-width: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .modal {
-    width: 25%;
-    min-width: 250px;
+  width: 25%;
+  min-width: 250px;
 }
 .dayChoose label {
   cursor: pointer;
@@ -46,27 +49,61 @@ body {
 .dayChoose label input[type="radio"]:checked ~ span {
   @apply text-gray-200 bg-gray-900;
 }
-
-.event90 {
-  max-width: 11.5vw;
-  height: 44px;
-  width: 10vw;
-  min-width: 4vw;
-  min-height: 11.75vh;
-}
 .event45 {
   max-width: 11.5vw;
-  height: 22px;
+  height: 21px;
   width: 10vw;
   min-width: 4vw;
   min-height: 5.75vh;
 }
+.event90 {
+  max-width: 11.5vw;
+  height: 42px;
+  width: 10vw;
+  min-width: 4vw;
+  min-height: 11.75vh;
+}
 .event135 {
   max-width: 11.5vw;
-  height: 66px;
+  height: 64px;
   width: 10vw;
   min-width: 4vw;
   min-height: 17.75vh;
+}
+.event270 {
+  max-width: 11.5vw;
+  height: 130px;
+  width: 10vw;
+  min-width: 4vw;
+  min-height: 35.75vh;
+}
+.event45-5 {
+  max-width: 16vw;
+  height: 21px;
+  width: 14vw;
+  min-width: 4vw;
+  min-height: 5.75vh;
+}
+.event90-5 {
+  max-width: 16vw;
+  height: 42px;
+  width: 14vw;
+  min-width: 4vw;
+  min-height: 11.75vh;
+}
+.event135-5 {
+  max-width: 16vw;
+  height: 64px;
+  width: 14vw;
+  min-width: 4vw;
+  min-height: 17.75vh;
+}
+.event270-5 {
+  max-width: 16vw;
+  height: 130px;
+  width: 14vw;
+  min-width: 4vw;
+  min-height: 35.75vh;
 }
 .content {
   width: 100%;

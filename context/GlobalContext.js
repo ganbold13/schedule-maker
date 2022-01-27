@@ -10,7 +10,8 @@ const GlobalContext = createContext({
     timesEnd: [],
     selectedEvent: null,
     setSelectedEvent: ()=> {},
-    searchIndex: ()=>{}
+    isSevenDays: false,
+    setIsSevenDays: ()=> {},
 });
 
 export default GlobalContext;

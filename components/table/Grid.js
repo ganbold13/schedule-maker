@@ -4,7 +4,7 @@ import GlobalContext from "../../context/GlobalContext";
 
 function Grid({ day, timeStart, startIndex }) {
   const [events, setEvents] = useState([]);
-  const { timesEnd, savedEvents, setSelectedEvent, setShowEventModal } =
+  const { timesEnd, isSevenDays, savedEvents, setSelectedEvent, setShowEventModal } =
     useContext(GlobalContext);
   useEffect(() => {
     const event = savedEvents.filter(
@@ -23,10 +23,12 @@ function Grid({ day, timeStart, startIndex }) {
             evt.label
           } shadow-sm absolute flex flex-col justify-center rounded-md  z-10 cursor-pointer hover:scale-x-105 hover:shadow-lg transition ${
             evt.duration == 0
-              ? "event45"
+              ? (isSevenDays?"event45":"event45-5")
               : evt.duration == 1
-              ? "event90"
-              : "event135"
+              ? (isSevenDays?"event90":"event90-5")
+              : evt.duration == 2
+              ? (isSevenDays?"event135":"event135-5")
+              : (isSevenDays?"event270":"event270-5")
           }`}
           onClick={() => {
             setSelectedEvent(evt), setShowEventModal(true);

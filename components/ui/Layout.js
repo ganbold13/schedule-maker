@@ -19,7 +19,7 @@ function Layout() {
       <Fragment>
         <div className="flex flex-1">
             <Sidebar />
-          <div className="w-full flex flex-col">
+          <div className="w-full flex flex-col ">
             <CalendarHeader />
             <Days />
           </div>

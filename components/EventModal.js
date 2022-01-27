@@ -251,6 +251,9 @@ function EventModal() {
               <option value={2}>
                 135 minutes
               </option>
+              <option value={4}>
+                270 minutes
+              </option>
               {/* {timesEnd.map((time, i) => (
                 <option key={i} defaultValue="ends" value={time}>
                   {time}

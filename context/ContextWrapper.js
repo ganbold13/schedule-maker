@@ -29,7 +29,13 @@ function initEvents() {
 }
 
 export default function ContextWrapper(props) {
-  const days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
+
+  const [isSevenDays, setIsSevenDays] = useState(false);
+  var days = []
+  isSevenDays? days =  ["MON", "TUE", "WED", "THU", "FRI", 
+  'SAT', 'SUN']: days = ["MON", "TUE", "WED", "THU", "FRI"]
+    
+
   const timesStart = [
     "07:40",
     "08:25",
@@ -67,14 +73,7 @@ export default function ContextWrapper(props) {
     "20:50",
   ];
   
-  function searchIndex(a){
-      for(var i =0; i< timesStart.lenght; i++){
-        if(a==timesStart[i]){
-          console.log(i);
-          return i;
-        }
-      }
-  }
+  
 
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [savedEvents, dispatchCallEvent] = useReducer(
@@ -89,6 +88,8 @@ export default function ContextWrapper(props) {
 
   const [showEventModal, setShowEventModal] = useState();
 
+  
+
   return (
     <GlobalContext.Provider
       value={{
@@ -101,7 +102,8 @@ export default function ContextWrapper(props) {
         days,
         timesStart,
         timesEnd,
-        searchIndex,
+        isSevenDays,
+        setIsSevenDays,
       }}
     >
       {props.children}
