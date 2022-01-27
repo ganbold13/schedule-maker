@@ -66,6 +66,15 @@ export default function ContextWrapper(props) {
     "20:05",
     "20:50",
   ];
+  
+  function searchIndex(a){
+      for(var i =0; i< timesStart.lenght; i++){
+        if(a==timesStart[i]){
+          console.log(i);
+          return i;
+        }
+      }
+  }
 
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [savedEvents, dispatchCallEvent] = useReducer(
@@ -92,6 +101,7 @@ export default function ContextWrapper(props) {
         days,
         timesStart,
         timesEnd,
+        searchIndex,
       }}
     >
       {props.children}

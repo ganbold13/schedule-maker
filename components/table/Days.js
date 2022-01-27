@@ -16,13 +16,14 @@ function Days() {
   //     <hr className="bg-gray-400"/>
   //   </div>
   // )
+  var isLab = false;
 
   return (
     <div className="flex-1 grid grid-cols-7 grid-rows-16 content">
       {timesStart.map((time, i) => (
         <Fragment key={i}>
           {days.map((day, index) => (
-            <Grid key={index}  day={day} timeStart={time} timeEnd={timesEnd[i+1]}/>
+            <Grid key={index}  day={day} timeStart={time} startIndex={i}/>
           ))}
         </Fragment>
       ))}

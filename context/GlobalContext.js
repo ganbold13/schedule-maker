@@ -9,7 +9,8 @@ const GlobalContext = createContext({
     timesStart: [],
     timesEnd: [],
     selectedEvent: null,
-    setSelectedEvent: ()=> {}
+    setSelectedEvent: ()=> {},
+    searchIndex: ()=>{}
 });
 
 export default GlobalContext;

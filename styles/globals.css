@@ -3,83 +3,102 @@
 @tailwind utilities;
 
 * {
-    font-family: monospace;
+  font-family: monospace;
 }
-body{
-    @apply bg-gray-700
+body {
+  @apply bg-gray-700;
 }
 .MainMenu {
-    width: 10.5vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 10.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .MainMenu button {
-    width: 4vw;
-    display: flex;
-    justify-content: center;
-    align-items:center;
-    
+  width: 4vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .dayChoose label {
-    cursor: pointer;
+  cursor: pointer;
 }
-.dayChoose label input[type="radio"]{
-    display: none;
+.dayChoose label input[type="radio"] {
+  display: none;
 }
 .dayChoose label span {
-    position:relative;
-    display: inline-block;
-    padding: 4px 8px;
-    transition: 0.5s;
-    border-radius: 10%;
-    @apply text-gray-400 font-medium overflow-hidden
-
+  position: relative;
+  display: inline-block;
+  padding: 4px 8px;
+  transition: 0.5s;
+  border-radius: 10%;
+  @apply text-gray-500 font-medium overflow-hidden;
 }
 
-.dayChoose label input[type="radio"]:hover~ span {
-    @apply shadow
+.dayChoose label input[type="radio"]:hover ~ span {
+  @apply shadow;
 }
 
-.dayChoose label input[type="radio"]:checked ~ span{
-    @apply text-gray-700 bg-gray-400
+.dayChoose label input[type="radio"]:checked ~ span {
+  @apply text-gray-200 bg-gray-900;
 }
 
-.event{
-    max-width: 11.5vw;
-    height: 5.5vh;
-    width: 10vw;
-    min-width: 4vw;
-    min-height: 20px;
-
+.event90 {
+  max-width: 11.5vw;
+  height: 44px;
+  width: 10vw;
+  min-width: 4vw;
+  min-height: 11.75vh;
 }
-.content{
-    width: 100%;
-    height: 100%;
+.event45 {
+  max-width: 11.5vw;
+  height: 22px;
+  width: 10vw;
+  min-width: 4vw;
+  min-height: 5.75vh;
+}
+.event135 {
+  max-width: 11.5vw;
+  height: 66px;
+  width: 10vw;
+  min-width: 4vw;
+  min-height: 17.75vh;
+}
+.content {
+  width: 100%;
+  height: 100%;
 }
 .box {
-    min-height: 22px;
-    font-size: 1vw;
+  min-height: 22px;
+  font-size: min(13px, max(10px, 2vw));
 }
-.fade-in{
-    animation: fadeIn 0.5s;
+.eventTitle {
+  font-size: max(13px, 1.3vw);
+}
+
+.subText {
+  font-size: max(8px, 1vw);
+}
+
+.fade-in {
+  animation: fadeIn 0.5s;
 }
 @keyframes fadeIn {
-    from{
-        opacity: 0;
-    }
-    to{
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-.fade-out{
-    animation: fadeOut 0.5s;
+.fade-out {
+  animation: fadeOut 0.5s;
 }
 @keyframes fadeOut {
-    from{
-        opacity: 1;
-    }
-    to{
-        opacity: 0;
-    }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

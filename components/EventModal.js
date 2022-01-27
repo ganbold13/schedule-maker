@@ -17,7 +17,7 @@ function EventModal() {
   const [prof, setProf] = useState(selectedEvent ? selectedEvent.prof : "");
   const [day, setDay] = useState(selectedEvent ? selectedEvent.day : "");
   const [start, setStart] = useState(selectedEvent ? selectedEvent.start : "");
-  const [end, setEnd] = useState(selectedEvent ? selectedEvent.end : "");
+  const [duration, setDuration] = useState(selectedEvent ? selectedEvent.duration : "");
   const [selectedLabel, setSelectedLabel] = useState(
     selectedEvent
       ? labelClasses.find((lbl) => lbl === selectedEvent.label)
@@ -31,7 +31,7 @@ function EventModal() {
       prof,
       day,
       start,
-      end,
+      duration,
       label: selectedLabel,
       id: selectedEvent ? selectedEvent.id : Date.now(),
     };
@@ -61,14 +61,14 @@ function EventModal() {
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
+                  className="h-5 w-5"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                    clip-rule="evenodd"
+                    clipRule="evenodd"
                   />
                 </svg>
               </span>
@@ -207,7 +207,7 @@ function EventModal() {
               id="startTime"
               className="bg-gray-800 pt-3 border-0 text-gray-400 pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
             >
-              <option value={"Starts"} disabled>
+              <option value={selectedEvent? selectedEvent.start :"Starts"} disabled>
                 Starts
               </option>
               {timesStart.map((time, i) => (
@@ -233,20 +233,29 @@ function EventModal() {
               </svg>
             </span>
             <select
-              defaultValue={"Ends"}
-              onChange={(e) => setEnd(e.target.value)}
-              name="endTime"
-              id="endTime"
+              defaultValue={selectedEvent? selectedEvent.duration :"duration"}
+              onChange={(e) => setDuration(e.target.value)}
+              name="durationTime"
+              id="durationTime"
               className="bg-gray-800 pt-3 border-0 text-gray-400 pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
             >
-              <option value={"Ends"} disabled>
-                Ends
+              <option value={"duration"} disabled>
+                Duration
               </option>
-              {timesEnd.map((time, i) => (
+              <option value={0}>
+                45 minutes
+              </option>
+              <option value={1}>
+                90 minutes
+              </option>
+              <option value={2}>
+                135 minutes
+              </option>
+              {/* {timesEnd.map((time, i) => (
                 <option key={i} defaultValue="ends" value={time}>
                   {time}
                 </option>
-              ))}
+              ))} */}
             </select>
             {/* Professor */}
             <span className="text-gray-400 mb-2">
@@ -269,9 +278,9 @@ function EventModal() {
               name="professor"
               placeholder="Add Professer name"
               value={prof}
-              requireds
+              required
               onChange={(e) => setProf(e.target.value)}
-              className="bg-gray-800 pt-3 border-0 text-gray-600 pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
+              className="bg-gray-800 pt-3 border-0 text-gray-400 pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
             />
             {/* Bookmark */}
             <span className="text-gray-400">
