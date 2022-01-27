@@ -6,7 +6,7 @@
   font-family: monospace;
 }
 body {
-  @apply bg-gray-100 dark:bg-gray-700; 
+  @apply bg-white dark:bg-gray-700; 
 }
 .MainMenu {
   width: 10.5vw;
@@ -22,6 +22,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  @apply shadow bg-gray-50 dark:bg-gray-800 rounded-2xl m-8 text-gray-400 py-2 px-2 hover:shadow-md hover:text-gray-800 dark:hover:text-white dark:hover:shadow-md dark:hover:shadow-gray-800 transition
+}
+.headerDay{
+    height: 24px;
+    min-width: 24px;
 }
 .modal {
   width: 25%;
@@ -51,66 +56,66 @@ body {
 }
 .event45 {
   max-width: 11.5vw;
-  height: 21px;
+  height: 20px;
   width: 10vw;
   min-width: 4vw;
-  min-height: 5.75vh;
+  min-height: 5.5vh;
 }
 .event90 {
   max-width: 11.5vw;
   height: 42px;
   width: 10vw;
   min-width: 4vw;
-  min-height: 11.75vh;
+  min-height: 11.5vh;
 }
 .event135 {
   max-width: 11.5vw;
   height: 64px;
   width: 10vw;
   min-width: 4vw;
-  min-height: 17.75vh;
+  min-height: 17.5vh;
 }
 .event270 {
   max-width: 11.5vw;
   height: 130px;
   width: 10vw;
   min-width: 4vw;
-  min-height: 35.75vh;
+  min-height: 35.5vh;
 }
 .event45-5 {
   max-width: 16vw;
   height: 21px;
   width: 14vw;
   min-width: 4vw;
-  min-height: 5.75vh;
+  min-height: 5.5vh;
 }
 .event90-5 {
   max-width: 16vw;
   height: 42px;
   width: 14vw;
   min-width: 4vw;
-  min-height: 11.75vh;
+  min-height: 11.5vh;
 }
 .event135-5 {
   max-width: 16vw;
   height: 64px;
   width: 14vw;
   min-width: 4vw;
-  min-height: 17.75vh;
+  min-height: 17.5vh;
 }
 .event270-5 {
   max-width: 16vw;
   height: 130px;
   width: 14vw;
   min-width: 4vw;
-  min-height: 35.75vh;
+  min-height: 35.5vh;
 }
 .content {
   width: 100%;
   height: 100%;
 }
 .box {
-  min-height: 22px;
+  min-height: 24px;
   font-size: min(13px, max(10px, 2vw));
 }
 .eventTitle {

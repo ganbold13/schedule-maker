@@ -22,11 +22,7 @@ function MainMenu() {
 
     if (currentTheme === "dark") {
       return (
-        <span
-          className="w-7 m-7"
-          role="button"
-          onClick={() => setTheme("light")}
-        >
+        <button onClick={() => setTheme("light")}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
@@ -39,15 +35,11 @@ function MainMenu() {
               clipRule="evenodd"
             />
           </svg>
-        </span>
+        </button>
       );
     } else {
       return (
-        <span
-          className="w-7 h-7"
-          role="button"
-          onClick={() => setTheme("dark")}
-        >
+        <button onClick={() => setTheme("dark")}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
@@ -56,7 +48,7 @@ function MainMenu() {
           >
             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
           </svg>
-        </span>
+        </button>
       );
     }
   };
@@ -67,7 +59,7 @@ function MainMenu() {
         onClick={() => {
           setShowEventModal(true);
         }}
-        className="shadow bg-gray-400 rounded-2xl fixed bottom-2 right-2 m-8 text-gray-600 py-2 px-2 hover:shadow-md hover:text-gray-800 transition hover:shadow-gray-500 xs:block xs1:hidden"
+        className="shadow bg-gray-50 dark:bg-gray-800 text-gray-400 hover:shadow-md hover:text-gray-800 dark:hover:text-white dark:hover:shadow-md dark:hover:shadow-gray-800 transition rounded-2xl fixed bottom-2 right-2 m-8  py-2 px-2   xs:block xs1:hidden"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +81,6 @@ function MainMenu() {
           onClick={() => {
             setShowEventModal(true);
           }}
-          className="shadow bg-gray-400 rounded-2xl m-8 text-gray-600 py-2 px-2 hover:shadow-md hover:text-gray-800 transition hover:shadow-gray-500"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -110,7 +101,6 @@ function MainMenu() {
           onClick={() => {
             isSevenDays ? setIsSevenDays(false) : setIsSevenDays(true);
           }}
-          className="shadow bg-gray-400 rounded-2xl m-8 text-gray-600 py-2 px-2 hover:shadow-md hover:text-gray-800 transition hover:shadow-gray-500"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -121,9 +111,7 @@ function MainMenu() {
             <path d="M8 5a1 1 0 100 2h5.586l-1.293 1.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L13.586 5H8zM12 15a1 1 0 100-2H6.414l1.293-1.293a1 1 0 10-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L6.414 15H12z" />
           </svg>
         </button>
-        <div className="shadow bg-gray-400 rounded-2xl m-8 text-gray-600 py-2 px-2 hover:shadow-md hover:text-gray-800 transition hover:shadow-gray-500">
-          {renderThemeChanger()}
-        </div>
+        <div>{renderThemeChanger()}</div>
       </div>
     </div>
   );

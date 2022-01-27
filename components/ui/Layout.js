@@ -17,7 +17,7 @@ function Layout() {
       {showEventModal && <EventModal />}
       <MainMenu />
       <Fragment>
-        <div className="flex flex-1">
+        <div className="flex flex-1 sidebar">
             <Sidebar />
           <div className="w-full flex flex-col ">
             <CalendarHeader />

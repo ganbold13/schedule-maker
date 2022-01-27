@@ -15,7 +15,7 @@ function Grid({ day, timeStart, startIndex }) {
   }, [savedEvents, timeStart]);
 
   return (
-    <div className="border border-gray-300 dark:border-gray-600 overflow-hidden flex justify-center box">
+    <div className="border border-gray-100 dark:border-gray-600 overflow-hidden flex justify-center box">
       {events.map((evt, idx) => (
         <div
           key={idx}
