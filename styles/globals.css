@@ -4,6 +4,7 @@
 
 * {
   font-family: monospace;
+  @apply transition
 }
 body {
   @apply bg-white dark:bg-gray-700; 
@@ -24,6 +25,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  
   @apply shadow bg-gray-50 dark:bg-gray-800 rounded-full m-8 text-gray-400 py-2 px-2 hover:rotate-180 hover:text-gray-800 dark:hover:text-white transition
 }
 .headerDay{
@@ -127,7 +129,7 @@ body {
 }
 .box {
   min-height: 24px;
-  font-size: min(13px, max(10px, 2vw));
+  font-size: min(13px, max(11px, 2vw));
 }
 .eventTitle {
   font-size: max(13px, 1.3vw);
