@@ -10,19 +10,21 @@ body {
 }
 .MainMenu {
   width: 10.5vw;
-  min-width: 100px;
+  min-width: 90px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 .MainMenu button {
-  width: 4vw;
-  min-width: 40px;
+  width: 3vw;
+  height: 3vw;
+  min-width: 35px;
+  min-height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
-  @apply shadow bg-gray-50 dark:bg-gray-800 rounded-2xl m-8 text-gray-400 py-2 px-2 hover:shadow-md hover:text-gray-800 dark:hover:text-white dark:hover:shadow-md dark:hover:shadow-gray-800 transition
+  @apply shadow bg-gray-50 dark:bg-gray-800 rounded-full m-8 text-gray-400 py-2 px-2 hover:rotate-180 hover:text-gray-800 dark:hover:text-white transition
 }
 .headerDay{
     height: 24px;
@@ -31,6 +33,15 @@ body {
 .modal {
   width: 25%;
   min-width: 250px;
+}
+.menuButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menuButton li {
+    list-style: none;
+    position: absolute;
 }
 .dayChoose label {
   cursor: pointer;
@@ -56,59 +67,59 @@ body {
 }
 .event45 {
   max-width: 11.5vw;
-  height: 20px;
+  min-height: 23px;
   width: 10vw;
   min-width: 4vw;
-  min-height: 5.5vh;
+  height: 5.5vh;
 }
 .event90 {
   max-width: 11.5vw;
-  height: 42px;
+  min-height: 46px;
   width: 10vw;
   min-width: 4vw;
-  min-height: 11.5vh;
+  height: 11.5vh;
 }
 .event135 {
   max-width: 11.5vw;
-  height: 64px;
+  min-height: 71px;
   width: 10vw;
   min-width: 4vw;
-  min-height: 17.5vh;
+  height: 17.5vh;
 }
 .event270 {
   max-width: 11.5vw;
-  height: 130px;
+  min-height: 142px;
   width: 10vw;
   min-width: 4vw;
-  min-height: 35.5vh;
+  height: 35.6vh;
 }
 .event45-5 {
   max-width: 16vw;
-  height: 21px;
+  min-height: 23px;
   width: 14vw;
   min-width: 4vw;
-  min-height: 5.5vh;
+  height: 5.5vh;
 }
 .event90-5 {
   max-width: 16vw;
-  height: 42px;
+  min-height: 46px;
   width: 14vw;
   min-width: 4vw;
-  min-height: 11.5vh;
+  height: 11.5vh;
 }
 .event135-5 {
   max-width: 16vw;
-  height: 64px;
+  min-height: 71px;
   width: 14vw;
   min-width: 4vw;
-  min-height: 17.5vh;
+  height: 17.5vh;
 }
 .event270-5 {
   max-width: 16vw;
-  height: 130px;
+  min-height: 142px;
   width: 14vw;
   min-width: 4vw;
-  min-height: 35.5vh;
+  height: 35.6vh;
 }
 .content {
   width: 100%;

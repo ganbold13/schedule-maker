@@ -46,7 +46,7 @@ function EventModal() {
   }
 
   return (
-    <div className={`h-screen w-full fixed left-0 top-0 flex justify-center items-center z-20 fade-in`}>
+    <div className={`h-screen w-full fixed left-0 top-0 flex justify-center items-center z-30 fade-in`}>
       <form className="bg-white dark:bg-gray-800 rounded-lg shadow-2xl modal">
         <header className="bg-gray-200 dark:bg-gray-900 px-4 py-2 flex justify-between items-center">
           <span className="text-gray-400"></span>

@@ -21,7 +21,7 @@ function Grid({ day, timeStart, startIndex }) {
           key={idx}
           className={`${
             evt.label
-          } shadow-sm absolute flex flex-col justify-center rounded-md  z-10 cursor-pointer hover:scale-x-105 hover:shadow-lg transition ${
+          } shadow-sm absolute flex flex-col justify-center rounded-md  z-10 cursor-pointer hover:scale-x-105 hover:shadow-md transition ${
             evt.duration == 0
               ? (isSevenDays?"event45":"event45-5")
               : evt.duration == 1
