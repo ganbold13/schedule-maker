@@ -5,9 +5,9 @@ import GlobalContext from "../context/GlobalContext";
 function MainMenu() {
   //const [showEventModal, setShowEventModal] = useState(false);
 
-  const { days, setShowEventModal, setIsSevenDays, isSevenDays } =
+  const { days, setShowEventModal, setIsSevenDays, isSevenDays, theme, setTheme, systemTheme } =
     useContext(GlobalContext);
-  const { systemTheme, theme, setTheme } = useTheme();
+ 
 
   const [mounted, setMounted] = useState(false);
   const [toggleActive, setToggleActive] = useState(false);
@@ -60,7 +60,7 @@ function MainMenu() {
           onClick={() => {
             setToggleActive(true);
           }}
-          className="shadow bg-gray-50 dark:bg-gray-800 text-gray-400 hover:shadow-md hover:text-gray-800 dark:hover:text-white dark:hover:shadow-md dark:hover:shadow-gray-800 transition rounded-full py-2 px-2 m-2 z-10 hover:rotate-180 "
+          className="shadow bg-gray-200 dark:bg-gray-800 text-gray-400 hover:shadow-md hover:text-gray-800 dark:hover:text-white dark:hover:shadow-md dark:hover:shadow-gray-800 transition rounded-full py-2 px-2 m-2 z-10 hover:rotate-180 "
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +82,7 @@ function MainMenu() {
           onClick={() => {
             setToggleActive(false);
           }}
-          className="shadow bg-gray-50 dark:bg-gray-800 text-gray-400 hover:shadow-md hover:text-gray-800 dark:hover:text-white dark:hover:shadow-md dark:hover:shadow-gray-800 transition rounded-full py-2 px-2 m-2 z-10 hover:rotate-180"
+          className="shadow bg-gray-200 dark:bg-gray-800 text-gray-400 hover:shadow-md hover:text-gray-800 dark:hover:text-white dark:hover:shadow-md dark:hover:shadow-gray-800 transition rounded-full py-2 px-2 m-2 z-10 hover:rotate-180"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +107,7 @@ function MainMenu() {
         <div className="menuButton">
           {toggleButton()}
           <li className={toggleActive? "bottom-32 right-0 transition-all" : ""}>
-            <button className="shadow bg-gray-50 dark:bg-gray-800 text-gray-400  hover:text-gray-800 dark:hover:text-white  transition rounded-full p-1 hover:rotate-180 "
+            <button className="shadow bg-gray-200 dark:bg-gray-800 text-gray-400  hover:text-gray-800 dark:hover:text-white  transition rounded-full p-1 hover:rotate-180 "
               onClick={() => {
                 isSevenDays ? setIsSevenDays(false) : setIsSevenDays(true);
               }}
@@ -122,7 +122,7 @@ function MainMenu() {
               </svg>
             </button>
           </li>
-          <li className={toggleActive? "bottom-28 right-8 shadow bg-gray-50 dark:bg-gray-800 text-gray-400  hover:text-gray-800 dark:hover:text-white  transition rounded-full pt-1 px-1 m-2 hover:rotate-180" : ""}>{renderThemeChanger()}</li>
+          <li className={toggleActive? "bottom-28 right-8 shadow bg-gray-200 dark:bg-gray-800 text-gray-400  hover:text-gray-800 dark:hover:text-white  transition rounded-full pt-1 px-1 m-2 hover:rotate-180" : ""}>{renderThemeChanger()}</li>
         </div>
         {/* Add button */}
         <div className="z-20">
@@ -130,7 +130,7 @@ function MainMenu() {
             onClick={() => {
               setShowEventModal(true);
             }}
-            className="shadow bg-gray-50 hover:rotate-180 dark:bg-gray-800 text-gray-400 hover:shadow-md hover:text-gray-800 dark:hover:text-white dark:hover:shadow-md dark:hover:shadow-gray-800 transition rounded-full py-2 px-2 m-2  "
+            className="shadow bg-gray-200 hover:rotate-180 dark:bg-gray-800 text-gray-400 hover:shadow-md hover:text-gray-800 dark:hover:text-white dark:hover:shadow-md dark:hover:shadow-gray-800 transition rounded-full py-2 px-2 m-2  "
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

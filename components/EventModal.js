@@ -1,24 +1,34 @@
 import { useState, useContext } from "react";
 import GlobalContext from "../context/GlobalContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const labelClasses = ["bg-indigo-500 hover:shadow-indigo-500", "bg-gray-500 hover:shadow-gray-500", "bg-green-500 hover:shadow-green-500", "bg-blue-500 hover:shadow-blue-500", "bg-red-500 hover:shadow-red-500", "bg-purple-500 hover:shadow-purple-500"];
+const labelClasses = [
+  "bg-indigo-500 hover:shadow-indigo-500",
+  "bg-gray-500 hover:shadow-gray-500",
+  "bg-green-500 hover:shadow-green-500",
+  "bg-blue-500 hover:shadow-blue-500",
+  "bg-red-500 hover:shadow-red-500",
+  "bg-purple-500 hover:shadow-purple-500",
+];
 
 function EventModal() {
   const {
-    showEventModal,
     setShowEventModal,
     dispatchCallEvent,
     timesStart,
-    timesEnd,
     selectedEvent,
     setSelectedEvent,
-    isSevenDays
+    isSevenDays,
+    theme,
   } = useContext(GlobalContext);
   const [title, setTitle] = useState(selectedEvent ? selectedEvent.title : "");
   const [prof, setProf] = useState(selectedEvent ? selectedEvent.prof : "");
   const [day, setDay] = useState(selectedEvent ? selectedEvent.day : "");
   const [start, setStart] = useState(selectedEvent ? selectedEvent.start : "");
-  const [duration, setDuration] = useState(selectedEvent ? selectedEvent.duration : "");
+  const [duration, setDuration] = useState(
+    selectedEvent ? selectedEvent.duration : ""
+  );
   const [selectedLabel, setSelectedLabel] = useState(
     selectedEvent
       ? labelClasses.find((lbl) => lbl === selectedEvent.label)
@@ -36,17 +46,52 @@ function EventModal() {
       label: selectedLabel,
       id: selectedEvent ? selectedEvent.id : Date.now(),
     };
+
     if (selectedEvent) {
       dispatchCallEvent({ type: "update", payload: classEvent });
     } else {
-      dispatchCallEvent({ type: "push", payload: classEvent });
+      if (
+        classEvent.day === "" ||
+        classEvent.start === "" ||
+        classEvent.duration === ""
+      ) {
+        toast.info("Choose the day and fill time");
+      } else {
+        dispatchCallEvent({ type: "push", payload: classEvent });
+        setShowEventModal(false);
+      }
     }
     setSelectedEvent(null);
-    setShowEventModal(false);
   }
 
   return (
-    <div className={`h-screen w-full fixed left-0 top-0 flex justify-center items-center z-30 fade-in`}>
+    <div
+      className={`h-screen w-full fixed left-0 top-0 flex justify-center items-center z-30 fade-in`}
+    >
+      {theme == "dark" && (
+        <ToastContainer
+          closeButton={false}
+          toastStyle={{
+            backgroundColor: "rgb(31,41,55)",
+            color: "rgb(156,163,175)",
+          }}
+          icon={false}
+          closeOnClick
+          position="top-center"
+          pauseOnHover={false}
+          autoClose={2000}
+        />
+      )}
+      {theme == "light" && (
+        <ToastContainer
+          closeButton={false}
+          icon={false}
+          closeOnClick
+          position="top-center"
+          pauseOnHover={false}
+          autoClose={2000}
+        />
+      )}
       <form className="bg-white dark:bg-gray-800 rounded-lg shadow-2xl modal">
         <header className="bg-gray-200 dark:bg-gray-900 px-4 py-2 flex justify-between items-center">
           <span className="text-gray-400"></span>
@@ -121,6 +166,7 @@ function EventModal() {
                   name="day"
                   id="1"
                   value="MON"
+                  required
                   onChange={(e) => setDay("MON")}
                 />
                 <span>M</span>
@@ -165,27 +211,32 @@ function EventModal() {
                 />
                 <span>F</span>
               </label>
-              {isSevenDays? <><label>
-                <input
-                  type="radio"
-                  name="day"
-                  id="6"
-                  value="SAT"
-                  onChange={(e) => setDay("SAT")}
-                />
-                <span>Sa</span>
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="day"
-                  id="7"
-                  value="SUN"
-                  onChange={(e) => setDay("SUN")}
-                />
-                <span>Su</span>
-              </label> </> : ""}
-              
+              {isSevenDays ? (
+                <>
+                  <label>
+                    <input
+                      type="radio"
+                      name="day"
+                      id="6"
+                      value="SAT"
+                      onChange={(e) => setDay("SAT")}
+                    />
+                    <span>Sa</span>
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="day"
+                      id="7"
+                      value="SUN"
+                      onChange={(e) => setDay("SUN")}
+                    />
+                    <span>Su</span>
+                  </label>{" "}
+                </>
+              ) : (
+                ""
+              )}
             </div>
             {/* Starts */}
             <span className="text-gray-400">
@@ -203,10 +254,11 @@ function EventModal() {
               </svg>
             </span>
             <select
-              defaultValue={selectedEvent? selectedEvent.start :"Starts"}
+              defaultValue={selectedEvent ? selectedEvent.start : "Starts"}
               onChange={(e) => setStart(e.target.value)}
               name="startTime"
               id="startTime"
+              required
               className="bg-white dark:bg-gray-800 pt-3 border-0 text-gray-600 dark:text-gray-400 pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
             >
               <option value={"Starts"} disabled>
@@ -235,27 +287,20 @@ function EventModal() {
               </svg>
             </span>
             <select
-              defaultValue={selectedEvent? selectedEvent.duration :"duration"}
+              defaultValue={selectedEvent ? selectedEvent.duration : "duration"}
               onChange={(e) => setDuration(e.target.value)}
               name="durationTime"
+              required
               id="durationTime"
               className="bg-white dark:bg-gray-800 pt-3 border-0 text-gray-600 dark:text-gray-400 pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
             >
               <option value={"duration"} disabled>
                 Duration
               </option>
-              <option value={0}>
-                45 minutes
-              </option>
-              <option value={1}>
-                90 minutes
-              </option>
-              <option value={2}>
-                135 minutes
-              </option>
-              <option value={4}>
-                270 minutes
-              </option>
+              <option value={0}>45 minutes</option>
+              <option value={1}>90 minutes</option>
+              <option value={2}>135 minutes</option>
+              <option value={4}>270 minutes</option>
               {/* {timesEnd.map((time, i) => (
                 <option key={i} defaultValue="ends" value={time}>
                   {time}
@@ -331,7 +376,7 @@ function EventModal() {
             onClick={handleSubmit}
             className="bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded text-white"
           >
-            {selectedEvent? "Update" : "Save" }
+            {selectedEvent ? "Update" : "Save"}
           </button>
         </footer>
       </form>

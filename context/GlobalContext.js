@@ -12,6 +12,9 @@ const GlobalContext = createContext({
     setSelectedEvent: ()=> {},
     isSevenDays: false,
     setIsSevenDays: ()=> {},
+    systemTheme: '',
+    setTheme: () => {},
+    theme: '',
 });
 
 export default GlobalContext;

@@ -1,5 +1,6 @@
 import { useReducer, useEffect, useState } from "react";
 import GlobalContext from "./GlobalContext";
+import { useTheme } from "next-themes";
 
 function savedEventsReducer(state, { type, payload }) {
   switch (type) {
@@ -31,6 +32,7 @@ function initEvents() {
 export default function ContextWrapper(props) {
 
   const [isSevenDays, setIsSevenDays] = useState(false);
+
   var days = []
   isSevenDays? days =  ["MON", "TUE", "WED", "THU", "FRI", 
   'SAT', 'SUN']: days = ["MON", "TUE", "WED", "THU", "FRI"]
@@ -74,6 +76,7 @@ export default function ContextWrapper(props) {
   ];
   
   
+  const { systemTheme, theme, setTheme } = useTheme();
 
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [savedEvents, dispatchCallEvent] = useReducer(
@@ -104,6 +107,9 @@ export default function ContextWrapper(props) {
         timesEnd,
         isSevenDays,
         setIsSevenDays,
+        systemTheme,
+        setTheme,
+        theme,
       }}
     >
       {props.children}
